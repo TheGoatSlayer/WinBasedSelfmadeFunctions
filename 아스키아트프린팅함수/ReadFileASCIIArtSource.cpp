@@ -1,11 +1,11 @@
 #include "ReadFileASCIIArtHeader.h"
 
-static void gotoxy(int x, int y); //Ä¿¼­ À§Ä¡ ÀÌµ¿ ÇÔ¼ö
+static void gotoxy(int x, int y); //ì»¤ì„œ ìœ„ì¹˜ ì´ë™ í•¨ìˆ˜
 
 bool PrintASCIIArt(FILE* fp)
 {
-	CONSOLE_SCREEN_BUFFER_INFO presentCur; // Ä¿¼­ À§Ä¡ º¯¼ö
-	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &presentCur); //Ä¿¼­ À§Ä¡ ÀúÀå
+	CONSOLE_SCREEN_BUFFER_INFO presentCur; // ì»¤ì„œ ìœ„ì¹˜ ë³€ìˆ˜
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &presentCur); //ì»¤ì„œ ìœ„ì¹˜ ì €ì¥
 	while (true)
 	{
 		char c = fgetc(fp);
@@ -15,20 +15,18 @@ bool PrintASCIIArt(FILE* fp)
 		else if (c == '\n')
 		{
 			putchar(c);
-			gotoxy(presentCur.dwCursorPosition.X, ++(presentCur.dwCursorPosition.Y)); //x°ª °íÁ¤À¸·Î ±×¸² ±úÁü ¹æÁö
 			c = fgetc(fp);
 
-			if (c == '\n') // ±×¸²À» ¿£ÅÍ·Î ±¸ºĞ, ±×¸² Ãâ·Â ¿Ï·á
-				return true; // while(PrintASCIIArt())¸¦ À§ÇØ true¹İÈ¯
+			if (c == '\n') // ê·¸ë¦¼ì„ ì—”í„°ë¡œ êµ¬ë¶„, ê·¸ë¦¼ ì¶œë ¥ ì™„ë£Œ
+				return true; // while(PrintASCIIArt())ë¥¼ ìœ„í•´ trueë°˜í™˜
 			else
 			{
-
+				gotoxy(presentCur.dwCursorPosition.X, ++(presentCur.dwCursorPosition.Y)); //xê°’ ê³ ì •ìœ¼ë¡œ ê·¸ë¦¼ ê¹¨ì§ ë°©ì§€
 				putchar(c);
 			}
 		}
 		else
 		{
-
 			putchar(c);
 		}
 	}
