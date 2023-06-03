@@ -9,7 +9,7 @@
 using namespace std;
 #define MAP_WIDTH	10
 #define MAP_LENGTH	20
-#define BLOCK_TYPE_NUM 7
+#define BLOCK_TYPE_NUM 	7
 
 const int Block_I[4][4][4] = {	//Set CLOCKWISE
 	{{0,0,0,0},	//Block_I[RotationNum::DEFAULT][][]
@@ -516,13 +516,13 @@ public:
 					cout << "..";
 					break;
 				case BLOCK:
-					cout << "¡á";
+					cout << "Â¡Ã¡";
 					break;
 				case OBSTACLE:
-					cout << "¡à";
+					cout << "Â¡Ã ";
 					break;
 				case WALL:
-					cout << "¢È";
+					cout << "Â¢Ãˆ";
 					break;
 				default:
 					break;
@@ -544,7 +544,7 @@ public:
 		{
 			for (int j = 0; j < 4; j++)
 			{
-				cout << ((pBlock[DEFAULT][i][j] == 1) ? "¡á" : "  ");
+				cout << ((pBlock[DEFAULT][i][j] == 1) ? "Â¡Ã¡" : "  ");
 			}
 			cout << endl;
 		}
@@ -616,7 +616,7 @@ void main()
 	string name;
 	srand((unsigned)time(NULL));
 	cout << "YOU CAN USE.." << endl << endl;
-	cout << "  ¡ç  ¡æ  ¡é  <(,)  >(.) Q(q)=Quit " << endl << endl;
+	cout << "  Â¡Ã§  Â¡Ã¦  Â¡Ã©  <(,)  >(.) Q(q)=Quit " << endl << endl;
 	cout << "PRESS TO START..";
 	_getch();
 	TetrisGameCLASS playTetris;
